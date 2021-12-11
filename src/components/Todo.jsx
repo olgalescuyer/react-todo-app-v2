@@ -2,32 +2,39 @@ import React, { useState } from "react";
 import Modal from "./Modal";
 import Backdrop from "./Backdrop";
 
-const Todo = ({ titre, description }) => {
-  const [modalOuverte, setModalOuverte] = useState(false);
+const Todo = () => {
+  const [dataArr, setDataArr] = useState([
+    { titre: "React tuto", description: "lorem" },
+    { titre: "React super tuto", description: "lorem ipsum" },
+    { titre: "React puper tuto", description: "lorem ipsum dolor" },
+  ]);
 
-  const deleteHandler = () => {
-    // console.log('suppression :' + titre);
-    
-    // chager d'état :
-    setModalOuverte(true);
+  const [modalOuverte, setModalOuverte] = useState(false);
+  // console.log(modalOuverte);
+
+  const deleteHandler = (bool) => {
+    setModalOuverte(bool);
   };
 
   return (
-    <div className="card">
-      <h2>{titre}</h2>
-      <p>{description}</p>
-      <div className="action">
-        <button className="btn" onClick={deleteHandler}>
-          Supprimer
-        </button>
-      </div>
-
-      {modalOuverte && <Modal />}
-      {modalOuverte && <Backdrop />}
+    <div>
+      {dataArr.map((item, index) => {
+        return (
+          <div className="card">
+            <div className="action" key={index}>
+              <h2>{item.titre}</h2>
+              <p>{item.description}</p>
+              <button className="btn" onClick={deleteHandler}>
+                Supprimer
+              </button>
+            </div>
+            {modalOuverte && <Modal func={deleteHandler} />}
+            {modalOuverte && <Backdrop />}
+          </div>
+        );
+      })}
     </div>
   );
 };
 
 export default Todo;
-
-
