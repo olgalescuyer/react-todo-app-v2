@@ -2,13 +2,22 @@ import React, { useState } from "react";
 import Todo from "./Todo";
 
 const Modal = (props) => {
+  console.log(props.btnId);
   
-
   return (
     <div className="modal">
       <p>Vous êtes sûr de vouloir supprimer ???</p>
 
-      <button className="btn">OUI</button>
+      <button
+      id={props.btnId}
+        className="btn"
+        onClick={() => {
+          console.log(props);
+          props.delFunc();
+        }}
+      >
+        OUI
+      </button>
 
       <button
         className="btn btn--alt"
