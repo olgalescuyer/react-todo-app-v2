@@ -1,7 +1,6 @@
-import React, { useState } from "react";
-import Todo from "./Todo";
 
-const Modal = ({ func, delFunc,btnId }) => {
+
+const Modal = ({ func, delFunc, btnId }) => {
   return (
     <div className="modal" id={btnId}>
       <p>Vous êtes sûr de vouloir supprimer ???</p>
@@ -10,6 +9,7 @@ const Modal = ({ func, delFunc,btnId }) => {
         className="btn"
         onClick={() => {
           delFunc(btnId);
+          func(false);
         }}
       >
         OUI
