@@ -1,4 +1,4 @@
-import { useState, Fragment } from "react";
+import { useState} from "react";
 import Modal from "./Modal";
 import Backdrop from "./Backdrop";
 import { v4 as uuidv4 } from "uuid";
@@ -25,7 +25,7 @@ const Todo = () => {
   };
 
   return (
-    <Fragment>
+    <>
       {dataArr.map((item) => {
         return (
           <div className="card" key={item.id} id={item.id} style={{"margin-bottom": "20px"}}>
@@ -47,7 +47,7 @@ const Todo = () => {
           </div>
         );
       })}
-    </Fragment>
+    </>
   );
 };
 
