@@ -1,19 +1,15 @@
 import React, { useState } from "react";
 import Todo from "./Todo";
 
-const Modal = (props) => {
-  console.log(props.btnId);
-  
+const Modal = ({ func, delFunc,btnId }) => {
   return (
-    <div className="modal">
+    <div className="modal" id={btnId}>
       <p>Vous êtes sûr de vouloir supprimer ???</p>
 
       <button
-      id={props.btnId}
         className="btn"
         onClick={() => {
-          console.log(props);
-          props.delFunc();
+          delFunc(btnId);
         }}
       >
         OUI
@@ -22,7 +18,7 @@ const Modal = (props) => {
       <button
         className="btn btn--alt"
         onClick={() => {
-          props.func(false);
+          func(false);
         }}
       >
         NON

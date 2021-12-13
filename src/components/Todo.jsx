@@ -4,7 +4,6 @@ import Backdrop from "./Backdrop";
 import { v4 as uuidv4 } from "uuid";
 
 const Todo = () => {
-  
   const [dataArr, setDataArr] = useState([
     { titre: "React tuto", description: "lorem", id: uuidv4() },
     { titre: "React super tuto", description: "lorem ipsum", id: uuidv4() },
@@ -16,13 +15,10 @@ const Todo = () => {
   ]);
 
   const deleteElement = (id) => {
-    console.log(id);
-
-    // const filteredState = dataArr.filter((item) => {
-    //   return item.id !== id;
-    // });
-
-    // setDataArr(filteredState);
+    const filteredState = dataArr.filter((item) => {
+      return item.id !== id;
+    });
+    setDataArr(filteredState);
   };
 
   const [modalOuverte, setModalOuverte] = useState(false);
@@ -45,7 +41,11 @@ const Todo = () => {
               </button>
             </div>
             {modalOuverte && (
-              <Modal func={deleteHandler} delFunc={deleteElement} btnId={item.id}/>
+              <Modal
+                func={deleteHandler}
+                delFunc={deleteElement}
+                btnId={item.id}
+              />
             )}
             {modalOuverte && <Backdrop />}
           </div>
