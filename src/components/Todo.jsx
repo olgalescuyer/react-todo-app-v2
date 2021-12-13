@@ -28,7 +28,7 @@ const Todo = () => {
     <Fragment>
       {dataArr.map((item) => {
         return (
-          <div className="card" key={item.id} id={item.id}>
+          <div className="card" key={item.id} id={item.id} style={{"margin-bottom": "20px"}}>
             <div className="action">
               <h2>{item.titre}</h2>
               <p>{item.description}</p>
