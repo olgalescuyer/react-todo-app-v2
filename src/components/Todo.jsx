@@ -21,14 +21,17 @@ const Todo = () => {
   // console.log(modalOuverte);
 
   const deleteHandler = () => {
+   
     setModalOuverte(!modalOuverte);
+    // console.log(modalOuverte);
+   
   };
 
   return (
     <>
       {dataArr.map((item) => {
         return (
-          <div className="card" key={item.id} id={item.id} style={{"margin-bottom": "20px"}}>
+          <div className="card" key={item.id} id={item.id} style={{"marginBottom": "20px"}}>
             <div className="action">
               <h2>{item.titre}</h2>
               <p>{item.description}</p>
@@ -38,8 +41,8 @@ const Todo = () => {
             </div>
             {modalOuverte && (
               <Modal
-                func={deleteHandler}
-                delFunc={deleteElement}
+              deleteHandler={deleteHandler}
+              deleteElement={deleteElement}
                 btnId={item.id}
               />
             )}

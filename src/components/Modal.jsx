@@ -1,6 +1,6 @@
 
 
-const Modal = ({ func, delFunc, btnId }) => {
+const Modal = ({ deleteHandler, deleteElement, btnId }) => {
   return (
     <div className="modal" id={btnId}>
       <p>Vous êtes sûr de vouloir supprimer ???</p>
@@ -8,8 +8,8 @@ const Modal = ({ func, delFunc, btnId }) => {
       <button
         className="btn"
         onClick={() => {
-          delFunc(btnId);
-          func();
+          deleteElement(btnId);
+          deleteHandler();
         }}
       >
         OUI
@@ -18,7 +18,7 @@ const Modal = ({ func, delFunc, btnId }) => {
       <button
         className="btn btn--alt"
         onClick={() => {
-          func();
+          deleteHandler();
         }}
       >
         NON
@@ -28,6 +28,6 @@ const Modal = ({ func, delFunc, btnId }) => {
 };
 
 export default Modal;
-// NON :
-// je transfère la fonction de App "deleteHandler" par props + j'assigne la valeur false (que ja passe un argumant "bool") au click qui change l'état de parent
+//  :
+// je transfère la fonction de App "deleteHandler" par props  au click qui change l'état de parent
 // ( App est un parent de Modal, donc je change son état depuis son enfant) :)
