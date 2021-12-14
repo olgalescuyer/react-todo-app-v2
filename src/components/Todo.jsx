@@ -20,8 +20,8 @@ const Todo = () => {
   const [modalOuverte, setModalOuverte] = useState(false);
   // console.log(modalOuverte);
 
-  const deleteHandler = (bool) => {
-    setModalOuverte(bool);
+  const deleteHandler = () => {
+    setModalOuverte(!modalOuverte);
   };
 
   return (

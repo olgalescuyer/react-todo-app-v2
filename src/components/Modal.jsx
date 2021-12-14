@@ -9,7 +9,7 @@ const Modal = ({ func, delFunc, btnId }) => {
         className="btn"
         onClick={() => {
           delFunc(btnId);
-          func(false);
+          func();
         }}
       >
         OUI
@@ -18,7 +18,7 @@ const Modal = ({ func, delFunc, btnId }) => {
       <button
         className="btn btn--alt"
         onClick={() => {
-          func(false);
+          func();
         }}
       >
         NON
